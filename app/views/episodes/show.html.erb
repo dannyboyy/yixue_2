@@ -1,14 +1,15 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
+<div class="col-md-6 col-md-offset-3">
   <%= @episode.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
   <%= @episode.description %>
-</p>
 
-<%= link_to 'Edit', edit_episode_path(@episode) %> |
-<%= link_to 'Back', episodes_path %>
+	<video id="example_video_1" class="video-js vjs-default-skin vjs-big-play-centered"
+	  controls preload="auto" width="640" height="264"
+	  poster="http://video-js.zencoder.com/oceans-clip.png"
+	  data-setup='{"autoplay":true}'>
+	 <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
+	 <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+	</video>
+
+	<%= link_to 'Edit', edit_episode_path(@episode) %> |
+	<%= link_to 'Back', episodes_path %>
+</div>
