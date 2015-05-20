@@ -1,15 +1,16 @@
-<div class="col-md-6 col-md-offset-3">
-  <%= @episode.name %>
-  <%= @episode.description %>
+<div class="video-container">
 
-	<video id="example_video_1" class="video-js vjs-default-skin vjs-big-play-centered"
-	  controls preload="auto" width="640" height="264"
+	<video id="day_1" class="video-js vjs-default-skin vjs-big-play-centered"
+	  controls preload="auto" width="1000" height="600"
 	  poster="http://video-js.zencoder.com/oceans-clip.png"
-	  data-setup='{"autoplay":true}'>
-	 <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
+	  data-setup='{"autoplay":false}'>
+	 <source src="http://7xi5nk.com1.z0.glb.clouddn.com/他是谁？.mp4" type='video/mp4' />
 	 <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
 	</video>
 
-	<%= link_to 'Edit', edit_episode_path(@episode) %> |
-	<%= link_to 'Back', episodes_path %>
+</div>
+
+<div class="lesson-notes">
+	<h2><%= @episode.name %></h2>
+	<p><%= @episode.description %></p>
 </div>
