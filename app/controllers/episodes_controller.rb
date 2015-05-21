@@ -1,8 +1,9 @@
 class EpisodesController < ApplicationController
   before_action :set_episode, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
-    @episodes = Episode.all
+    @episodes = Episode.order("created_at DESC").paginate(page: params[:page])
   end
 
   def show

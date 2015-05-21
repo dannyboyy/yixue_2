@@ -1,16 +1,24 @@
 <div class="video-container">
 
-	<video id="day_1" class="video-js vjs-default-skin vjs-big-play-centered"
+	<video id="video" class="video-js vjs-default-skin vjs-big-play-centered"
 	  controls preload="auto" width="1000" height="600"
 	  poster="http://video-js.zencoder.com/oceans-clip.png"
 	  data-setup='{"autoplay":false}'>
 	 <source src="http://7xi5nk.com1.z0.glb.clouddn.com/他是谁？.mp4" type='video/mp4' />
-	 <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
 	</video>
 
 </div>
 
-<div class="lesson-notes">
-	<h2><%= @episode.name %></h2>
+<div class="lesson-notes ">
+	<h1><%= @episode.name %></h1>
 	<p><%= @episode.description %></p>
 </div>
+
+<nav>
+  <ul class="pager">
+    <li><%= link_to("Previous", @episode.previous) if @episode.previous %></li>
+    <li><%= link_to("Next", @episode.next) if @episode.next %></li>
+  </ul>
+</nav>
+
+
