@@ -17,17 +17,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-// sign in page
-.container .sign-in-page {
-	padding: 2.1875rem 2.5rem;
-	margin-top: 15%;
-	background: white;
-  border: 
+// sign in & sign-up page
+.sign-in-page, .sign-up-page {
+  padding: 2.1875rem 2.5rem;
+  margin-top: 15%;
+  background: white;
+  
+  .form-control {
+    height: 48px;
+    font-size: 20px
+  }
+}
 
-	h2 {
-		text-align: center;
-		margin-bottom: 30px;
-	}
-
-
+.text-center {
+  text-align: center;
+  margin-bottom: 30px;
 }
