@@ -1,4 +1,4 @@
-ruby '2.0.0'
+ruby '2.1.5'
 source 'https://rubygems.org'
 
 group :development, :test do
@@ -34,3 +34,4 @@ gem 'devise', '~> 3.4.1'
 gem 'bootstrap-sass', '~> 3.3.4.1'
 gem 'simple_form'
 gem 'will_paginate', '~> 3.0.7'
+gem 'jquery-turbolinks'
