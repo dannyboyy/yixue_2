@@ -1,4 +1,10 @@
+<%= render 'header' %>
 
+<div class="container">
+
+  <% flash.each do |name, msg| %>
+    <%= content_tag(:div, msg, class: "alert alert-info") %>
+  <% end %>
 
   <% @episodes.each do |episode| %>
 
@@ -16,4 +22,4 @@
   <%= link_to 'New Episode', new_episode_path %>
 
   <%= will_paginate @episodes %>
-
+</div>

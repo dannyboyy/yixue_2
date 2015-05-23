@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
+  root "welcome#index"
+
   devise_for :users
   resources :episodes
-
-  root to: "episodes#index"
   
 end

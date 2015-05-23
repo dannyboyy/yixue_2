@@ -5,6 +5,7 @@
 document.createElement('video');document.createElement('audio');document.createElement('track');
 </script>
 
+<%= render 'header' %>
 <div class="container">
   <!-- video container to host video -->
   <div class="row">
@@ -45,8 +46,10 @@ document.createElement('video');document.createElement('audio');document.createE
   <!-- JiaThis Button END -->
 
   <!-- UY BEGIN -->
-  <div id="uyan_frame"></div>
-  <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2009366"></script>
+  <div class="uyan-threads">
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2009366"></script>
+  </div>
   <!-- UY END -->
 
   <!-- Navigation Buttons -->
