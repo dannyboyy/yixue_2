@@ -1,24 +1,58 @@
-<div class="video-container">
+<!-- required for video.js -->
+<link href="//vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
+<script src="//vjs.zencdn.net/4.12/video.js"></script>
+<script type="text/javascript">
+document.createElement('video');document.createElement('audio');document.createElement('track');
+</script>
 
-	<video id="video" class="video-js vjs-default-skin vjs-big-play-centered"
-	  controls preload="auto" width="1000" height="600"
-	  poster="http://video-js.zencoder.com/oceans-clip.png"
-	  data-setup='{"autoplay":false}'>
-	 <source src="http://7xi5nk.com1.z0.glb.clouddn.com/他是谁？.mp4" type='video/mp4' />
-	</video>
+<div class="container">
+  <!-- video container to host video -->
+  <div class="row">
+    <div class="video-container">
+    	<video id="video" class="video-js vjs-default-skin vjs-big-play-centered"
+    	  controls preload="auto" width="auto" height="auto"
+    	  poster="http://video-js.zencoder.com/oceans-clip.png"
+    	  data-setup='{"autoplay":false}'>
+    	 <source src=<%= @episode.video_url %> type='video/mp4' />
+    	</video>
+    </div>
+  </div>
+
+  <!-- text, comments, notes for the episode -->
+  <div class="lesson-notes ">
+  	<h1><%= @episode.name %></h1>
+  	<p><%= @episode.updated_at %></p>
+    <p><%= @episode.description %></p>
+  </div>
+
+  <!-- JiaThis Button BEGIN -->
+  <div class="jiathis_style_32x32">
+    <a class="jiathis_button_qzone"></a>
+    <a class="jiathis_button_tsina"></a>
+    <a class="jiathis_button_tqq"></a>
+    <a class="jiathis_button_weixin"></a>
+    <a class="jiathis_button_renren"></a>
+    <a href="http://www.jiathis.com/share?uid=2009366" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+    <a class="jiathis_counter_style"></a>
+  </div>
+  <script type="text/javascript">
+  var jiathis_config = {data_track_clickback:'true'};
+  </script>
+  <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2009366" charset="utf-8"></script>
+  <!-- JiaThis Button END -->
+
+  <!-- UY BEGIN -->
+  <div id="uyan_frame"></div>
+  <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2009366"></script>
+  <!-- UY END -->
+
+  <!-- Navigation Buttons -->
+  <nav>
+    <ul class="pager">
+      <li><%= link_to("Previous", @episode.previous) if @episode.previous %></li>
+      <li><%= link_to("Next", @episode.next) if @episode.next %></li>
+    </ul>
+  </nav>
+  <!-- Navigation Buttons End -->
 
 </div>
-
-<div class="lesson-notes ">
-	<h1><%= @episode.name %></h1>
-	<p><%= @episode.description %></p>
-</div>
-
-<nav>
-  <ul class="pager">
-    <li><%= link_to("Previous", @episode.previous) if @episode.previous %></li>
-    <li><%= link_to("Next", @episode.next) if @episode.next %></li>
-  </ul>
-</nav>
-
-

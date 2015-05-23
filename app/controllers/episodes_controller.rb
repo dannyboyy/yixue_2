@@ -3,7 +3,7 @@ class EpisodesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @episodes = Episode.order("created_at DESC").paginate(page: params[:page])
+    @episodes = Episode.order("created_at ASC").paginate(page: params[:page])
   end
 
   def show
@@ -58,6 +58,6 @@ class EpisodesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def episode_params
-      params.require(:episode).permit(:name, :description)
+      params.require(:episode).permit(:name, :description, :video_url)
     end
 end
