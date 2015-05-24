@@ -2,14 +2,18 @@
 <a name="about"></a>
 <div class="intro-header">
   <div class="container">
-
-    <div class="logo pull-left">
-      <h3>壹学</h3>
-    </div>
-    <div class="social hidden-xs">
-      <a href="#"><i class="ion-social-twitter"></i></a>
-      <a href="#"><i class="ion-social-instagram"></i></a>
-      <a href="#"><i class="ion-social-facebook"></i></a>
+    <div class="row">
+      <div class="logo pull-left">
+        <h3>壹学</h3>
+      </div>
+      <div class="social">
+        <%= link_to new_user_session_path do %>
+          <i class="fa fa-sign-in"></i> 登录
+        <% end %>
+        <%= link_to new_user_registration_path do %>
+          <i class="fa fa-user-plus"></i> 注册
+        <% end %>
+      </div>
     </div>
 
     <div class="row">

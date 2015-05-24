@@ -5,7 +5,31 @@
 document.createElement('video');document.createElement('audio');document.createElement('track');
 </script>
 
-<%= render 'header' %>
+<!-- Static navbar -->
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a class="navbar-brand">壹学</a>
+
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <% if user_signed_in? %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "BACK TO COURSE", episodes_path %></li>
+        </ul>
+      <% end %>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+<!-- Static Navbar Ends -->
+
 <div class="container">
   <!-- video container to host video -->
   <div class="row">
@@ -18,32 +42,54 @@ document.createElement('video');document.createElement('audio');document.createE
     	</video>
     </div>
   </div>
+  
+  <!-- panel content starts here -->
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <!-- text, comments, notes for the episode -->
+        <div class="col-md-8 col-xs-12">
+          <div class="lesson-notes">
+          	<h1><%= @episode.name %></h1>
+          	<p><%= @episode.updated_at %></p>
+            <p><%= @episode.description %></p>
+          </div>
+        </div>
+        
+        <!-- Navigation Buttons -->
+        <div class="col-md-4 col-xs-12">
+          <nav>
+            <ul class="pager">
+              <%= link_to("Previous", @episode.previous, class: "btn btn-lg btn-block") if @episode.previous  %>
+              <%= link_to("Next", @episode.next, class: "btn btn-lg btn-block") if @episode.next %>
+            </ul>
+          </nav>
+        </div>
+        <!-- Navigation Buttons End -->
 
-  <!-- text, comments, notes for the episode -->
-  <div class="lesson-notes ">
-  	<h1><%= @episode.name %></h1>
-  	<p><%= @episode.updated_at %></p>
-    <p><%= @episode.description %></p>
-  </div>
-
-  <!-- JiaThis Button BEGIN -->
-  <div class="share-buttons">
-    <div class="jiathis_style_32x32">
-      <a class="jiathis_button_weixin"></a>
-      <a class="jiathis_button_tsina"></a>
-      <a class="jiathis_button_qzone"></a>
-      <a class="jiathis_button_fb"></a>
-      <a class="jiathis_button_googleplus"></a>
-      <a class="jiathis_button_linkedin"></a>
-      <a href="http://www.jiathis.com/share?uid=2009366" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-      <a class="jiathis_counter_style"></a>
+      <!-- JiaThis Button BEGIN -->
+        <div class="share-buttons">
+          <div class="jiathis_style_32x32">
+            <a class="jiathis_button_weixin"></a>
+            <a class="jiathis_button_tsina"></a>
+            <a class="jiathis_button_qzone"></a>
+            <a class="jiathis_button_fb"></a>
+            <a class="jiathis_button_googleplus"></a>
+            <a class="jiathis_button_linkedin"></a>
+            <a href="http://www.jiathis.com/share?uid=2009366" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+            <a class="jiathis_counter_style"></a>
+          </div>
+          <script type="text/javascript">
+          var jiathis_config = {data_track_clickback:'true'};
+          </script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2009366" charset="utf-8"></script>
+        </div> </ br>
+        <!-- JiaThis Button END -->
+      </div>
     </div>
-    <script type="text/javascript">
-    var jiathis_config = {data_track_clickback:'true'};
-    </script>
-    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2009366" charset="utf-8"></script>
-  </div> </ br>
-  <!-- JiaThis Button END -->
+  </div>
+  <!-- Panel Content End -->
+
 
   <!-- UY BEGIN -->
   <div class="uyan-threads">
@@ -51,14 +97,5 @@ document.createElement('video');document.createElement('audio');document.createE
     <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2009366"></script>
   </div>
   <!-- UY END -->
-
-  <!-- Navigation Buttons -->
-  <nav>
-    <ul class="pager">
-      <li><%= link_to("Previous", @episode.previous) if @episode.previous %></li>
-      <li><%= link_to("Next", @episode.next) if @episode.next %></li>
-    </ul>
-  </nav>
-  <!-- Navigation Buttons End -->
 
 </div>
