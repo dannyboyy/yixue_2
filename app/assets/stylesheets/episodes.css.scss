@@ -25,3 +25,8 @@
 .pager a {
   color: white;
 }
+
+// Create space between col-md-12 within panel-body
+.panel-body .row  {
+  margin-bottom: 15px;
+}

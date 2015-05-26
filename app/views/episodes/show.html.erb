@@ -47,51 +47,82 @@ document.createElement('video');document.createElement('audio');document.createE
   <div class="row">
     <div class="panel panel-default">
       <div class="panel-body">
-
-        <!-- text, comments, notes for the episode -->
-        <div class="col-md-8 col-xs-12">
-          <div class="lesson-notes">
-          	<h1><%= @episode.name %></h1>
-          	<p><%= @episode.updated_at %></p>
-            <p><%= @episode.description %></p>
+        <div class="row">
+          <!-- text, comments, notes for the episode -->
+          <div class="col-md-8 col-xs-12">
+            <div class="lesson-notes">
+            	<h1><%= @episode.name %></h1>
+            	<p><%= @episode.updated_at %></p>
+              <p><%= @episode.description %></p>
+            </div>
           </div>
+          
+          <div class="col-md-4 col-xs-12">
+          <!-- Navigation Buttons -->
+            <nav>
+              <ul class="pager">
+                <%= link_to("Previous", @episode.previous, class: "btn btn-lg btn-block") if @episode.previous  %>
+                <%= link_to("Next", @episode.next, class: "btn btn-lg btn-block") if @episode.next %>
+              </ul>
+            </nav><!-- Navigation Buttons End -->
+          
+            <!-- JiaThis Button BEGIN -->
+              <div class="share-buttons">
+                <div class="jiathis_style_32x32">
+                  <a class="jiathis_button_weixin"></a>
+                  <a class="jiathis_button_tsina"></a>
+                  <a class="jiathis_button_qzone"></a>
+                  <a class="jiathis_button_fb"></a>
+                  <a class="jiathis_button_googleplus"></a>
+                  <a class="jiathis_button_linkedin"></a>
+                  <a href="http://www.jiathis.com/share?uid=2009366" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+                  <a class="jiathis_counter_style"></a>
+                </div>
+                <script type="text/javascript">
+                var jiathis_config = {data_track_clickback:'true'};
+                </script>
+                <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2009366" charset="utf-8"></script>
+              </div> </ br>
+              <!-- JiaThis Button END -->
+            </div>
         </div>
         
-        <div class="col-md-4 col-xs-12">
-        <!-- Navigation Buttons -->
-          <nav>
-            <ul class="pager">
-              <%= link_to("Previous", @episode.previous, class: "btn btn-lg btn-block") if @episode.previous  %>
-              <%= link_to("Next", @episode.next, class: "btn btn-lg btn-block") if @episode.next %>
+        <!-- Tabs Start Here -->
+<!--         <div class="row">
+          <div class="col-md-12 col-xs-12">
+            <ul class="nav nav-tabs">
+              <li role="presentation" class="active"><a href="#">Lesson Notes</a></li>
+              <li role="presentation"><a href="uyan-threads">Q&A</a></li>
             </ul>
-          </nav><!-- Navigation Buttons End -->
+          </div>
+        </div> -->
+        <!-- Tabs End -->
+        <div role="tabpanel">
 
-          <!-- JiaThis Button BEGIN -->
-            <div class="share-buttons">
-              <div class="jiathis_style_32x32">
-                <a class="jiathis_button_weixin"></a>
-                <a class="jiathis_button_tsina"></a>
-                <a class="jiathis_button_qzone"></a>
-                <a class="jiathis_button_fb"></a>
-                <a class="jiathis_button_googleplus"></a>
-                <a class="jiathis_button_linkedin"></a>
-                <a href="http://www.jiathis.com/share?uid=2009366" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-                <a class="jiathis_counter_style"></a>
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#lesson-notes" aria-controls="home" role="tab" data-toggle="tab">Lesson Notes</a></li>
+            <li role="presentation"><a href="#uyan-threads" aria-controls="profile" role="tab" data-toggle="tab">Questions and Comments</a></li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="lesson-notes">
+              ABCDE
+            </div>
+            <div role="tabpanel" class="tab-pane" id="uyan-threads">
+              <!-- UY BEGIN -->
+              <div class="uyan-threads">
+                <div id="uyan_frame"></div>
+                <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2009366"></script>
               </div>
-              <script type="text/javascript">
-              var jiathis_config = {data_track_clickback:'true'};
-              </script>
-              <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2009366" charset="utf-8"></script>
-            </div> </ br>
-            <!-- JiaThis Button END -->
+              <!-- UY END -->
+            </div>
+          </div>
+
         </div>
-        
-        <!-- UY BEGIN -->
-        <div class="uyan-threads">
-          <div id="uyan_frame"></div>
-          <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2009366"></script>
-        </div>
-        <!-- UY END -->
+
+
         
       </div>
     </div>
