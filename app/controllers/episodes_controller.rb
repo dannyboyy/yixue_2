@@ -7,13 +7,12 @@ class EpisodesController < ApplicationController
   end
 
   def show
+    authorize @episode
   end
 
   def new
     @episode = Episode.new
-  end
-
-  def edit
+    authorize @episode
   end
 
   def create
@@ -30,7 +29,12 @@ class EpisodesController < ApplicationController
     end
   end
 
+  def edit
+    authorize @episode
+  end
+
   def update
+    authorize @episode
     respond_to do |format|
       if @episode.update(episode_params)
         format.html { redirect_to @episode, notice: 'Episode was successfully updated.' }

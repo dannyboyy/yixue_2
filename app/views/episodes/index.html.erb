@@ -18,8 +18,11 @@
   <% end %>
 
   <br>
-
-  <%= link_to 'New Episode', new_episode_path %>
+  
+  <!-- Hide link to create a new episode if user is NOT authorizied to create -->
+  <% if policy(Episode.new).create? %>
+    <%= link_to 'New Episode', new_episode_path %>
+  <% end %>
 
   <%= will_paginate @episodes %>
 </div>
