@@ -37,3 +37,5 @@ gem 'will_paginate', '~> 3.0.7'
 gem 'jquery-turbolinks'
 gem 'font-awesome-sass'
 gem 'pundit'
+# Use friendly_id gem for slugging
+gem 'friendly_id', '~> 5.1.0'

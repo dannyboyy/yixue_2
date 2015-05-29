@@ -6,4 +6,9 @@ class Episode < ActiveRecord::Base
 	def next
 	  Episode.where(["id > ?", id]).first
 	end
+
+  # Use friendly_id for slugging
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+  
 end
